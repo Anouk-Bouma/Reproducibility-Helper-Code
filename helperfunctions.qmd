@@ -1,0 +1,26 @@
+---
+title: "Helper Code"
+format: html
+editor: visual
+---
+
+## Dependency Management
+
+```{r}
+
+renv::restore()
+
+library()
+```
+
+## Dependency Installments
+
+### SessionInfo() to installed packages
+
+```{r}
+
+###
+
+```
+
+## Runtime Benchmarking
