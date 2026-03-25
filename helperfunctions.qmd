@@ -1,10 +1,61 @@
 ---
 title: "Helper Code"
+execute: 
+  eval: false
 format: html
 editor: visual
 ---
 
-## Dependency Management
+# Dependencies
+
+## A. Standard environment: no package-version or R-version information available
+
+### R version
+
+If there is no dependency information available for the project to reproduce, we will work with a standard R version, and the most recent versions for all packages used in the reproduction.
+
+Please take the following steps:
+
+1.  Make sure the standard R version is installed on your computer (R version ....)
+2.  Make sure the appropriate RTools version is installed on your computer.
+3.  In RStudio, navigate to Tools -\> Global Options. Under R version, click Change.
+4.  Select the standard R version (version ...), and click Apply.
+5.  Click Apply.
+6.  A pop-up will appear noting that you need to quit and re-open RStudio for this change to take effect.
+7.  Close RStudio.
+8.  Reopen RStudio.
+9.  Check if the correct R version is running in your environment by running `sessionInfo()` in the Console.
+
+### Package versions
+
+If no package version information is available, we will work with the newest package versions. Therefore, **every time** you start a new reproduction, you have to make sure that your installed packages are updated. Of course, any new packages that you did not have in your package library yet but are needed for the reproduction will also be the newest version (as version information is not available).
+
+Please take the following steps:
+
+1.  Navigate to Tools -\> Check for Package Updates... -\> Select All -\> Install Updates
+
+<!--# here how to install packages and load them etc. -->
+
+## A. sessionInfo() output available
+
+### R version
+
+If your project to reproduce has sessionInfo() output available, you should take the following steps to get the correct environment.
+
+1.  Download and install the right R version [here](https://cran.r-project.org/bin/windows/base/old/).
+2.  Download and install the associated Rtools version [here](https://cran.r-project.org/bin/windows/Rtools/).
+3.  In Rstudio, navigate to Tools -\> Global Options. Under R version, click Change.
+4.  Select the correct version and click Apply.
+5.  A pop-up will appear noting that you need to quit and re-open RStudio for this change to take effect.
+6.  Close RStudio.
+7.  Reopen RStudio.
+8.  Check if the correct R version is running in your environment by running `sessionInfo()` in the Console.
+
+It is not necessary to select the correct Rtools version. If you have correctly installed it to your device, R will automatically select the right version to use.
+
+### Package versions
+
+Once the correct R version is installed, the right packages need to be installed too. Even though authors might not have utilized renv in their projects, we will use renv to install and record any packages that were specified by the original authors. That way, we can always go back to the file to see which packages were used for the reproduction.
 
 ```{r}
 
