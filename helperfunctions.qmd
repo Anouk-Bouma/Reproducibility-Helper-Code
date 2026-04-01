@@ -6,33 +6,48 @@ format: html
 editor: visual
 ---
 
-# Dependencies
+# 1. R version
 
-## A. Standard environment: no package-version or R-version information available
+## 1.1 R version provided by authors
 
-### R version
-
-If there is no dependency information available for the project to reproduce, we will work with a standard R version, and the most recent versions for all packages used in the reproduction. #overview
-
-Please take the following steps:
-
-1.  Make sure the standard R version is installed on your computer (R version ....)
-2.  Make sure the appropriate RTools version is installed on your computer.
-3.  In RStudio, navigate to Tools -\> Global Options. Under R version, click Change.
-4.  Select the standard R version (version ...), and click Apply.
-5.  Click Apply.
+1.  Download and install the right R version [here](https://cran.r-project.org/bin/windows/base/old/).
+2.  Download and install the associated Rtools version [here](https://cran.r-project.org/bin/windows/Rtools/). Once you've downloaded and installed an RTools version to your computer once it will automatically select the right version for the version of R you are running. If you already have the correct version installed, you can skip this step.
+3.  In RStudio, navigate to *Tools* -\> *Global Options*. Under R version, click *Change*.
+4.  Select the standard R version (version ...), and click *Apply*.
+5.  Click *Apply*.
 6.  A pop-up will appear noting that you need to quit and re-open RStudio for this change to take effect.
 7.  Close RStudio.
 8.  Reopen RStudio.
 9.  Check if the correct R version is running in your environment by running `sessionInfo()` in the Console.
 
-### Package versions
+## 1.2 R version not provided by authors
+
+If there is no R version specified by the authors, we will use a standard R version.
+
+Please take the following steps:
+
+1.  Make sure the standard R version is installed on your computer (R version ....).
+2.  Make sure the appropriate RTools version is installed on your computer, once you've downloaded and installed an RTools version to your computer once it will automatically select the right version for the version of R you are running. If you already have the correct version installed, you can skip this step.
+3.  In RStudio, navigate to *Tools* -\> *Global Options*. Under R version, click *Change*.
+4.  Select the standard R version (version ...), and click *Apply*.
+5.  Click *Apply*.
+6.  A pop-up will appear noting that you need to quit and re-open RStudio for this change to take effect.
+7.  Close RStudio.
+8.  Reopen RStudio.
+9.  Check if the correct R version is running in your environment by running `sessionInfo()` in the Console.
+
+# 2. Packages
+
+## 2.1 No information on packages
 
 If no package version information is available, we will work with the newest package versions. Therefore, **every time** you start a new reproduction, you have to make sure that your installed packages are updated. Of course, any new packages that you did not have in your package library yet but are needed for the reproduction will also be the newest version (as version information is not available).
 
 Please take the following steps:
 
-1.  Navigate to Tools -\> Check for Package Updates... -\> Select All -\> Install Updates -\> Click Yes to the pop-up that asks to restart RStudio prior to install
+1.  In RStudio, navigate to *Tools* -\> *Check for Package Updates...* -\> *Select All* -\> *Install Updates* -\> Click *Yes* to the pop-up that asks to restart RStudio prior to install.
+
+## 2.2 Function calls in script only
+
 2.  If function calls are available but you still have to install the packages first, please adjust the following code accordingly and add it to the script:
 
 ```{r}
@@ -45,6 +60,73 @@ install.packages(c("tidyverse", "MASS", "lme4", "numDeriv", "nlme", "lmerTest", 
 ########################
 
 ```
+
+## 2.3 List of packages without versions
+
+## 2.4 Packages with versions
+
+## 2.5 Renv
+
+An R Project that uses renv will automatically load the renv library upon opening the .Rproj file. You can also see this in the console. For R projects, the working directory will automatically be set to folder that contains the R project. In the Files tab in RStudio, you can open the files that you need.
+
+A correctly set-up project that uses renv will contain a line of code to restore the right packages and code that loads them into the environment. This will look like this:
+
+```{r}
+
+renv::restore() # restores the packages from the lockfile
+
+library() # library calls for all needed packages should be included
+
+```
+
+In case an renv project does not include the code to restore the packages from the lockfile, you may need to add this line of code yourself. This will then be a manual change. Be sure to indicate this manual change in the protocol and refer to section 3.4 of this appendix before continuing.
+
+# 3. Manual Changes
+
+We consider any action a 'manual change' if it requires you as the reproducer to 1) write code that is not written by the original authors, AND/OR 2) make any changes to the code provided by the authors.
+
+Even if the changes that need to be made are made explicit in the instructions, any action that fulfills one of the above mentioned criteria is considered a manual change.
+
+<!--# Some examples here?? -->
+
+## 3.1 Set the working directory
+
+<!--# This part is a bit confusing in information, think about the structure of the content -->
+
+Setting the working directory is only necessary if the available codescripts are not part of an R project. R projects can be recognized by a file in the directory with an .Rproj extension. Opening an R project will automatically take care of setting the working directory of RStudio to the folder where the R project is stored. R projects therefore do not need a manual action of setting the working directory!
+
+It may also be possible that an R script uses code to set the working directory to the folder where the script is saved. This may look something like this:
+
+```{r}
+
+rstudioapi::getActiveDocumentContext()$path
+```
+
+But note that there can also be other ways to take care of setting the working directory within the code.
+
+If there is no automatic way that the working directory is taken care of (as may often be the case) you will have to set the working directory to the top-level folder of where you have stored the shared materials. Make sure to always do this, also if it is not specifically instructed in the script to do so. Many analyses will automatically save output files to the working directory, so it is important that you know where those are saved so you can find them easily.
+
+## 3.2 Change filepaths
+
+## 3.3 Comment out erroneous irrelevant code
+
+## 3.4 Changes related to dependencies
+
+-   writing code to restore renv
+
+-   writing install.packages
+
+-   writing library()
+
+-   writing code to install specific package versions
+
+# Dependencies - Packages
+
+## Standard environment: no package-version or R-version information available
+
+### R version
+
+### Package versions
 
 ## A. sessionInfo() output available
 
@@ -85,3 +167,5 @@ library()
 ```
 
 ## Runtime Benchmarking
+
+-   working directory needs to be set to the right folder before running any analysis
