@@ -12,7 +12,7 @@ editor: visual
 
 ### R version
 
-If there is no dependency information available for the project to reproduce, we will work with a standard R version, and the most recent versions for all packages used in the reproduction.
+If there is no dependency information available for the project to reproduce, we will work with a standard R version, and the most recent versions for all packages used in the reproduction. #overview
 
 Please take the following steps:
 
@@ -32,9 +32,19 @@ If no package version information is available, we will work with the newest pac
 
 Please take the following steps:
 
-1.  Navigate to Tools -\> Check for Package Updates... -\> Select All -\> Install Updates
+1.  Navigate to Tools -\> Check for Package Updates... -\> Select All -\> Install Updates -\> Click Yes to the pop-up that asks to restart RStudio prior to install
+2.  If function calls are available but you still have to install the packages first, please adjust the following code accordingly and add it to the script:
 
-<!--# here how to install packages and load them etc. -->
+```{r}
+
+########################
+#### MANUAL CHANGES ####
+
+install.packages(c("tidyverse", "MASS", "lme4", "numDeriv", "nlme", "lmerTest", "doParallel"))
+
+########################
+
+```
 
 ## A. sessionInfo() output available
 
