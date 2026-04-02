@@ -12,8 +12,7 @@ editor: visual
 
 Follow the steps for your operating system below.
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ## Windows
 
 1.  Download and install the required R version from the [CRAN archive](https://cran.r-project.org/bin/windows/base/old/).
@@ -83,15 +82,13 @@ rig install x.x.x
 5.  Verify the correct R version is active by running `sessionInfo()` in the Console.
 
 > **Note — missing system libraries:** If package installation fails due to missing system libraries, install the necessary build tools (e.g., `sudo apt install build-essential` on Ubuntu/Debian) and any package-specific system dependencies listed in the error message.
-
 :::
 
 ## 1.2 R version not provided by authors
 
 If no R version is specified by the authors, use the standard R version for this project.
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ## Windows
 
 1.  Ensure the standard R version for this project (R.x.x.x) is installed on your computer. If not, download it from the [CRAN archive](https://cran.r-project.org/bin/windows/base/old/).
@@ -137,7 +134,6 @@ If no R version is specified by the authors, use the standard R version for this
 5.  Close and reopen RStudio.
 
 6.  Verify the correct R version is active by running `sessionInfo()` in the Console.
-
 :::
 
 # 2. Packages
@@ -251,8 +247,7 @@ In RStudio, navigate to *Session* → *Set Working Directory* → *Choose Direct
 
 Alternatively, add the following code to the script (**manual change**):
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ## Windows
 
 ```{r}
@@ -291,7 +286,6 @@ setwd("/home/yourname/path/to/shared/materials")
 ########################
 
 ```
-
 :::
 
 ## 3.2 Change filepaths
@@ -325,14 +319,11 @@ data <- read.csv("data/data.csv")
 
 ## 3.3 Comment out erroneous or irrelevant code
 
-Occasionally, a script contains code that produces errors or performs actions that are irrelevant to the reproduction. Common examples include:
-
--   Code that sends emails or uploads files to external services.
--   Code that references files or paths not included in the shared materials.
--   Package installation calls that conflict with the setup you have already completed.
--   Code that clears the entire workspace (e.g., `rm(list = ls())`) at a point that would interfere with your setup.
+Occasionally, a script contains code that produces errors or performs actions that are irrelevant to the reproduction.
 
 In these cases, comment out the relevant line(s) and add a brief explanation so the change is transparent. This constitutes a **manual change**.
+
+An RStudio shortcut to easily comment out chunks of code is by selecting the code you want to comment out and hitting Ctrl + Shift + C.
 
 ```{r}
 
@@ -363,4 +354,4 @@ Any of the following actions constitutes a **manual change** and must be recorde
 
 -   **Installing specific package versions:** If you use `remotes::install_version()` to install packages at the versions specified by the authors (see Section 2.4), this code must be added manually to the script.
 
-In all cases, clearly mark any added code with the `MANUAL CHANGES` comment block used throughout this appendix.
+In all cases, clearly mark any added code with the `MANUAL CHANGES` comment block used throughout this appendix and indicate the manual changes in the protocol.
