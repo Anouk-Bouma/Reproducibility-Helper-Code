@@ -53,7 +53,7 @@ Please take the following steps:
 ########################
 #### MANUAL CHANGES ####
 
-install.packages(c("tidyverse", "MASS", "lme4", "numDeriv", "nlme", "lmerTest", "doParallel"))
+install.packages(c("package1", "package2", "package3"))
 
 ########################
 
