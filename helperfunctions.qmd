@@ -11,14 +11,13 @@ editor: visual
 ## 1.1 R version provided by authors
 
 1.  Download and install the right R version [here](https://cran.r-project.org/bin/windows/base/old/).
-2.  Download and install the associated Rtools version [here](https://cran.r-project.org/bin/windows/Rtools/). Once you've downloaded and installed an RTools version to your computer once it will automatically select the right version for the version of R you are running. If you already have the correct version installed, you can skip this step.
-3.  In RStudio, navigate to *Tools* -\> *Global Options*. Under R version, click *Change*.
-4.  Select the standard R version (version ...), and click *Apply*.
+2.  Download and install the associated Rtools version [here](https://cran.r-project.org/bin/windows/Rtools/). Once an Rtools version has been installed on your computer, RStudio will automatically select the right version for the R version you are running. If you already have the correct version installed, skip this step.
+3.  In RStudio, navigate to *Tools* → *Global Options*. Under R version, click *Change*.
+4.  Select the required R version as specified by the authors, and click *OK*.
 5.  Click *Apply*.
-6.  A pop-up will appear noting that you need to quit and re-open RStudio for this change to take effect.
-7.  Close RStudio.
-8.  Reopen RStudio.
-9.  Check if the correct R version is running in your environment by running `sessionInfo()` in the Console.
+6.  A pop-up will appear noting that you need to restart RStudio for the change to take effect.
+7.  Close and reopen RStudio.
+8.  Verify the correct R version is active by running `sessionInfo()` in the Console.
 
 ## 1.2 R version not provided by authors
 
@@ -26,15 +25,14 @@ If there is no R version specified by the authors, we will use a standard R vers
 
 Please take the following steps:
 
-1.  Make sure the standard R version is installed on your computer (R version ....).
-2.  Make sure the appropriate RTools version is installed on your computer, once you've downloaded and installed an RTools version to your computer once it will automatically select the right version for the version of R you are running. If you already have the correct version installed, you can skip this step.
-3.  In RStudio, navigate to *Tools* -\> *Global Options*. Under R version, click *Change*.
-4.  Select the standard R version (version ...), and click *Apply*.
+1.  Ensure the standard R version for this project (R.x.x.x) is installed on your computer.
+2.  Ensure the appropriate RTools version is installed on your computer. Once installed, RStudio will automatically select the correct version. If already installed, skip this step.
+3.  In RStudio, navigate to *Tools* → *Global Options*. Under R version, click *Change*.
+4.  Select the standard R version (R.x.x.x), and click *OK*.
 5.  Click *Apply*.
-6.  A pop-up will appear noting that you need to quit and re-open RStudio for this change to take effect.
-7.  Close RStudio.
-8.  Reopen RStudio.
-9.  Check if the correct R version is running in your environment by running `sessionInfo()` in the Console.
+6.  A pop-up will appear noting that you need to restart RStudio for the change to take effect.
+7.  Close and reopen RStudio.
+8.  Verify the correct R version is active by running `sessionInfo()` in the Console.
 
 # 2. Packages
 
@@ -44,7 +42,7 @@ If no package version information is available, we will work with the newest pac
 
 Please take the following steps:
 
-1.  In RStudio, navigate to *Tools* -\> *Check for Package Updates...* -\> *Select All* -\> *Install Updates* -\> Click *Yes* to the pop-up that asks to restart RStudio prior to install.
+1.  In RStudio, navigate to *Tools* → *Check for Package Updates...* → *Select All* → *Install Updates* → Click *Yes* to the pop-up that asks to restart RStudio prior to install.
 
 ## 2.2 Function calls in script only
 
@@ -136,7 +134,7 @@ If your project to reproduce has sessionInfo() output available, you should take
 
 1.  Download and install the right R version [here](https://cran.r-project.org/bin/windows/base/old/).
 2.  Download and install the associated Rtools version [here](https://cran.r-project.org/bin/windows/Rtools/).
-3.  In Rstudio, navigate to Tools -\> Global Options. Under R version, click Change.
+3.  In Rstudio, navigate to Tools → Global Options. Under R version, click Change.
 4.  Select the correct version and click Apply.
 5.  A pop-up will appear noting that you need to quit and re-open RStudio for this change to take effect.
 6.  Close RStudio.
