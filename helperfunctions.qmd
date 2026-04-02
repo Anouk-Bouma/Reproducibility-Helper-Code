@@ -2,7 +2,13 @@
 title: "Helper Code"
 execute:
   eval: false
-format: html
+format:
+  pdf:
+    toc: true
+    toc-depth: 2
+    colorlinks: true
+    geometry: margin=1in
+    fontsize: 11pt
 editor: visual
 ---
 
@@ -12,9 +18,7 @@ editor: visual
 
 Follow the steps for your operating system below.
 
-::: {.panel-tabset}
-
-## Windows
+### Windows
 
 1.  Download and install the required R version from the [CRAN archive](https://cran.r-project.org/bin/windows/base/old/).
 2.  Download and install the associated Rtools version from [CRAN](https://cran.r-project.org/bin/windows/Rtools/). RStudio will automatically select the correct Rtools for the R version you are running. If you already have the correct version installed, skip this step.
@@ -25,7 +29,7 @@ Follow the steps for your operating system below.
 7.  Close and reopen RStudio.
 8.  Verify the correct R version is active by running `sessionInfo()` in the Console.
 
-## macOS
+### macOS
 
 We recommend using [rig](https://github.com/r-lib/rig) (the R Installation Manager) to install and switch between multiple R versions.
 
@@ -55,7 +59,7 @@ rig install x.x.x
 
 > **Note — compilation errors:** If package installation fails with compilation errors, install the Xcode Command Line Tools by running `xcode-select --install` in Terminal.
 
-## Linux
+### Linux
 
 We recommend using [rig](https://github.com/r-lib/rig) to install and switch between multiple R versions.
 
@@ -84,15 +88,11 @@ rig install x.x.x
 
 > **Note — missing system libraries:** If package installation fails due to missing system libraries, install the necessary build tools (e.g., `sudo apt install build-essential` on Ubuntu/Debian) and any package-specific system dependencies listed in the error message.
 
-:::
-
 ## 1.2 R version not provided by authors
 
 If no R version is specified by the authors, use the standard R version for this project.
 
-::: {.panel-tabset}
-
-## Windows
+### Windows
 
 1.  Ensure the standard R version for this project (R.x.x.x) is installed on your computer. If not, download it from the [CRAN archive](https://cran.r-project.org/bin/windows/base/old/).
 2.  Ensure the appropriate Rtools version is installed. If already installed, RStudio will select it automatically — skip this step if so.
@@ -102,7 +102,7 @@ If no R version is specified by the authors, use the standard R version for this
 6.  Close and reopen RStudio.
 7.  Verify the correct R version is active by running `sessionInfo()` in the Console.
 
-## macOS
+### macOS
 
 1.  Ensure the standard R version for this project (R.x.x.x) is installed. If not, install it using rig:
 
@@ -120,7 +120,7 @@ If no R version is specified by the authors, use the standard R version for this
 
 6.  Verify the correct R version is active by running `sessionInfo()` in the Console.
 
-## Linux
+### Linux
 
 1.  Ensure the standard R version for this project (R.x.x.x) is installed. If not, install it using rig:
 
@@ -137,8 +137,6 @@ If no R version is specified by the authors, use the standard R version for this
 5.  Close and reopen RStudio.
 
 6.  Verify the correct R version is active by running `sessionInfo()` in the Console.
-
-:::
 
 # 2. Packages
 
@@ -249,11 +247,9 @@ If no automatic method is in place, you must set the working directory manually 
 
 In RStudio, navigate to *Session* → *Set Working Directory* → *Choose Directory...* and select the top-level folder of the shared materials.
 
-Alternatively, add the following code to the script (**manual change**):
+Alternatively, add the following code to the script (**manual change**). Replace the path with the correct location on your system:
 
-::: {.panel-tabset}
-
-## Windows
+### Windows
 
 ```{r}
 
@@ -266,7 +262,7 @@ setwd("C:/path/to/shared/materials")
 
 ```
 
-## macOS
+### macOS
 
 ```{r}
 
@@ -279,7 +275,7 @@ setwd("/Users/yourname/path/to/shared/materials")
 
 ```
 
-## Linux
+### Linux
 
 ```{r}
 
@@ -291,8 +287,6 @@ setwd("/home/yourname/path/to/shared/materials")
 ########################
 
 ```
-
-:::
 
 ## 3.2 Change filepaths
 
