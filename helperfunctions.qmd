@@ -319,14 +319,11 @@ data <- read.csv("data/data.csv")
 
 ## 3.3 Comment out erroneous or irrelevant code
 
-Occasionally, a script contains code that produces errors or performs actions that are irrelevant to the reproduction. Common examples include:
-
--   Code that sends emails or uploads files to external services.
--   Code that references files or paths not included in the shared materials.
--   Package installation calls that conflict with the setup you have already completed.
--   Code that clears the entire workspace (e.g., `rm(list = ls())`) at a point that would interfere with your setup.
+Occasionally, a script contains code that produces errors or performs actions that are irrelevant to the reproduction.
 
 In these cases, comment out the relevant line(s) and add a brief explanation so the change is transparent. This constitutes a **manual change**.
+
+An RStudio shortcut to easily comment out chunks of code is by selecting the code you want to comment out and hitting Ctrl + Shift + C.
 
 ```{r}
 
@@ -357,4 +354,4 @@ Any of the following actions constitutes a **manual change** and must be recorde
 
 -   **Installing specific package versions:** If you use `remotes::install_version()` to install packages at the versions specified by the authors (see Section 2.4), this code must be added manually to the script.
 
-In all cases, clearly mark any added code with the `MANUAL CHANGES` comment block used throughout this appendix.
+In all cases, clearly mark any added code with the `MANUAL CHANGES` comment block used throughout this appendix and indicate the manual changes in the protocol.
