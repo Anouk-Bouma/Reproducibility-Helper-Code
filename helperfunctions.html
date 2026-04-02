@@ -96,74 +96,293 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="overview" class="level1">
-<h1>Dependencies</h1>
-<section id="a.-standard-environment-no-package-version-or-r-version-information-available" class="level2">
-<h2 class="anchored" data-anchor-id="a.-standard-environment-no-package-version-or-r-version-information-available">A. Standard environment: no package-version or R-version information available</h2>
-<section id="r-version" class="level3">
-<h3 class="anchored" data-anchor-id="r-version">R version</h3>
-<p>If there is no dependency information available for the project to reproduce, we will work with a standard R version, and the most recent versions for all packages used in the reproduction. #overview</p>
-<p>Please take the following steps:</p>
+<section id="r-version" class="level1">
+<h1>1. R version</h1>
+<section id="r-version-provided-by-authors" class="level2">
+<h2 class="anchored" data-anchor-id="r-version-provided-by-authors">1.1 R version provided by authors</h2>
+<p>Follow the steps for your operating system below.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">macOS</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Linux</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <ol type="1">
-<li>Make sure the standard R version is installed on your computer (R version ….)</li>
-<li>Make sure the appropriate RTools version is installed on your computer.</li>
-<li>In RStudio, navigate to Tools -&gt; Global Options. Under R version, click Change.</li>
-<li>Select the standard R version (version …), and click Apply.</li>
-<li>Click Apply.</li>
-<li>A pop-up will appear noting that you need to quit and re-open RStudio for this change to take effect.</li>
-<li>Close RStudio.</li>
-<li>Reopen RStudio.</li>
-<li>Check if the correct R version is running in your environment by running <code>sessionInfo()</code> in the Console.</li>
+<li>Download and install the required R version from the <a href="https://cran.r-project.org/bin/windows/base/old/">CRAN archive</a>.</li>
+<li>Download and install the associated Rtools version from <a href="https://cran.r-project.org/bin/windows/Rtools/">CRAN</a>. RStudio will automatically select the correct Rtools for the R version you are running. If you already have the correct version installed, skip this step.</li>
+<li>In RStudio, navigate to <em>Tools</em> → <em>Global Options</em>. Under <strong>R version</strong>, click <em>Change</em>.</li>
+<li>Select the required R version as specified by the authors, and click <em>OK</em>.</li>
+<li>Click <em>Apply</em>.</li>
+<li>A pop-up will appear noting that RStudio must be restarted for the change to take effect.</li>
+<li>Close and reopen RStudio.</li>
+<li>Verify the correct R version is active by running <code>sessionInfo()</code> in the Console.</li>
 </ol>
-</section>
-<section id="package-versions" class="level3">
-<h3 class="anchored" data-anchor-id="package-versions">Package versions</h3>
-<p>If no package version information is available, we will work with the newest package versions. Therefore, <strong>every time</strong> you start a new reproduction, you have to make sure that your installed packages are updated. Of course, any new packages that you did not have in your package library yet but are needed for the reproduction will also be the newest version (as version information is not available).</p>
-<p>Please take the following steps:</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>We recommend using <a href="https://github.com/r-lib/rig">rig</a> (the R Installation Manager) to install and switch between multiple R versions.</p>
+<p><strong>Install rig</strong> (if not already installed) by opening Terminal and running:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install <span class="at">--cask</span> rig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you do not have Homebrew, install it from <a href="https://brew.sh">brew.sh</a> first, or download rig directly from its <a href="https://github.com/r-lib/rig/releases">GitHub releases</a>.</p>
+<p><strong>Install the required R version</strong> by running the following in Terminal, replacing <code>x.x.x</code> with the required version number:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rig</span> install x.x.x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Switch the R version in RStudio:</strong></p>
 <ol type="1">
-<li>Navigate to Tools -&gt; Check for Package Updates… -&gt; Select All -&gt; Install Updates</li>
+<li>In RStudio, navigate to <em>Tools</em> → <em>Global Options</em>. Under <strong>R version</strong>, click <em>Change</em>.</li>
+<li>Select the required R version and click <em>OK</em>.</li>
+<li>Click <em>Apply</em>.</li>
+<li>Close and reopen RStudio.</li>
+<li>Verify the correct R version is active by running <code>sessionInfo()</code> in the Console.</li>
 </ol>
-<!--# here how to install packages and load them etc. -->
-</section>
-</section>
-<section id="a.-sessioninfo-output-available" class="level2">
-<h2 class="anchored" data-anchor-id="a.-sessioninfo-output-available">A. sessionInfo() output available</h2>
-<section id="r-version-1" class="level3">
-<h3 class="anchored" data-anchor-id="r-version-1">R version</h3>
-<p>If your project to reproduce has sessionInfo() output available, you should take the following steps to get the correct environment.</p>
+<blockquote class="blockquote">
+<p><strong>Note — Apple Silicon vs Intel:</strong> Make sure you have the correct build of R for your chip. Check your chip type under <em>Apple menu</em> → <em>About This Mac</em>. rig installs the correct build automatically.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Note — compilation errors:</strong> If package installation fails with compilation errors, install the Xcode Command Line Tools by running <code>xcode-select --install</code> in Terminal.</p>
+</blockquote>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>We recommend using <a href="https://github.com/r-lib/rig">rig</a> to install and switch between multiple R versions.</p>
+<p><strong>Install rig</strong> by running the following in Terminal:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-Ls</span> https://github.com/r-lib/rig/releases/download/latest/rig-linux-static-latest.tar.gz <span class="dt">\</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">|</span> <span class="fu">tar</span> xz <span class="at">-C</span> /usr/local</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For distribution-specific instructions, see the <a href="https://github.com/r-lib/rig">rig GitHub page</a>.</p>
+<p><strong>Install the required R version</strong> by running the following in Terminal, replacing <code>x.x.x</code> with the required version number:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rig</span> install x.x.x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Switch the R version in RStudio:</strong></p>
 <ol type="1">
-<li>Download and install the right R version <a href="https://cran.r-project.org/bin/windows/base/old/">here</a>.</li>
-<li>Download and install the associated Rtools version <a href="https://cran.r-project.org/bin/windows/Rtools/">here</a>.</li>
-<li>In Rstudio, navigate to Tools -&gt; Global Options. Under R version, click Change.</li>
-<li>Select the correct version and click Apply.</li>
-<li>A pop-up will appear noting that you need to quit and re-open RStudio for this change to take effect.</li>
-<li>Close RStudio.</li>
-<li>Reopen RStudio.</li>
-<li>Check if the correct R version is running in your environment by running <code>sessionInfo()</code> in the Console.</li>
+<li>In RStudio, navigate to <em>Tools</em> → <em>Global Options</em>. Under <strong>R version</strong>, click <em>Change</em>.</li>
+<li>Select the required R version and click <em>OK</em>.</li>
+<li>Click <em>Apply</em>.</li>
+<li>Close and reopen RStudio.</li>
+<li>Verify the correct R version is active by running <code>sessionInfo()</code> in the Console.</li>
 </ol>
-<p>It is not necessary to select the correct Rtools version. If you have correctly installed it to your device, R will automatically select the right version to use.</p>
+<blockquote class="blockquote">
+<p><strong>Note — missing system libraries:</strong> If package installation fails due to missing system libraries, install the necessary build tools (e.g., <code>sudo apt install build-essential</code> on Ubuntu/Debian) and any package-specific system dependencies listed in the error message.</p>
+</blockquote>
+</div>
+</div>
+</div>
 </section>
-<section id="package-versions-1" class="level3">
-<h3 class="anchored" data-anchor-id="package-versions-1">Package versions</h3>
-<p>Once the correct R version is installed, the right packages need to be installed too. Even though authors might not have utilized renv in their projects, we will use renv to install and record any packages that were specified by the original authors. That way, we can always go back to the file to see which packages were used for the reproduction.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="r-version-not-provided-by-authors" class="level2">
+<h2 class="anchored" data-anchor-id="r-version-not-provided-by-authors">1.2 R version not provided by authors</h2>
+<p>If no R version is specified by the authors, use the standard R version for this project.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">macOS</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">Linux</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<ol type="1">
+<li>Ensure the standard R version for this project (R.x.x.x) is installed on your computer. If not, download it from the <a href="https://cran.r-project.org/bin/windows/base/old/">CRAN archive</a>.</li>
+<li>Ensure the appropriate Rtools version is installed. If already installed, RStudio will select it automatically — skip this step if so.</li>
+<li>In RStudio, navigate to <em>Tools</em> → <em>Global Options</em>. Under <strong>R version</strong>, click <em>Change</em>.</li>
+<li>Select the standard R version (R.x.x.x) and click <em>OK</em>.</li>
+<li>Click <em>Apply</em>.</li>
+<li>Close and reopen RStudio.</li>
+<li>Verify the correct R version is active by running <code>sessionInfo()</code> in the Console.</li>
+</ol>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<ol type="1">
+<li><p>Ensure the standard R version for this project (R.x.x.x) is installed. If not, install it using rig:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rig</span> install x.x.x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>In RStudio, navigate to <em>Tools</em> → <em>Global Options</em>. Under <strong>R version</strong>, click <em>Change</em>.</p></li>
+<li><p>Select the standard R version (R.x.x.x) and click <em>OK</em>.</p></li>
+<li><p>Click <em>Apply</em>.</p></li>
+<li><p>Close and reopen RStudio.</p></li>
+<li><p>Verify the correct R version is active by running <code>sessionInfo()</code> in the Console.</p></li>
+</ol>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<ol type="1">
+<li><p>Ensure the standard R version for this project (R.x.x.x) is installed. If not, install it using rig:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rig</span> install x.x.x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>In RStudio, navigate to <em>Tools</em> → <em>Global Options</em>. Under <strong>R version</strong>, click <em>Change</em>.</p></li>
+<li><p>Select the standard R version (R.x.x.x) and click <em>OK</em>.</p></li>
+<li><p>Click <em>Apply</em>.</p></li>
+<li><p>Close and reopen RStudio.</p></li>
+<li><p>Verify the correct R version is active by running <code>sessionInfo()</code> in the Console.</p></li>
+</ol>
+</div>
+</div>
 </div>
 </section>
 </section>
-<section id="dependency-installments" class="level2">
-<h2 class="anchored" data-anchor-id="dependency-installments">Dependency Installments</h2>
-<section id="sessioninfo-to-installed-packages" class="level3">
-<h3 class="anchored" data-anchor-id="sessioninfo-to-installed-packages">SessionInfo() to installed packages</h3>
+<section id="packages" class="level1">
+<h1>2. Packages</h1>
+<section id="no-information-on-packages" class="level2">
+<h2 class="anchored" data-anchor-id="no-information-on-packages">2.1 No information on packages</h2>
+<p>If no package version information is available, use the newest available package versions. <strong>Every time you start a new reproduction</strong>, make sure all installed packages are up to date before running any code.</p>
+<ol type="1">
+<li>In RStudio, navigate to <em>Tools</em> → <em>Check for Package Updates…</em> → <em>Select All</em> → <em>Install Updates</em>.</li>
+<li>Click <em>Yes</em> when prompted to restart RStudio before installation.</li>
+</ol>
+</section>
+<section id="function-calls-in-script-only" class="level2">
+<h2 class="anchored" data-anchor-id="function-calls-in-script-only">2.2 Function calls in script only</h2>
+<p>If the script contains <code>library()</code> or <code>require()</code> calls but the packages are not yet installed on your system, add an <code>install.packages()</code> call to the script. This constitutes a <strong>manual change</strong>.</p>
+<p>Adjust the package names below to match those needed by the script:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">###</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">########################</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="do">#### MANUAL CHANGES ####</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"package1"</span>, <span class="st">"package2"</span>, <span class="st">"package3"</span>))</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="do">########################</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
+<section id="list-of-packages-without-versions" class="level2">
+<h2 class="anchored" data-anchor-id="list-of-packages-without-versions">2.3 List of packages without versions</h2>
+<p>If a list of required packages is provided (e.g., in a README or documentation file) but no version numbers are given, install all listed packages at their current versions. This constitutes a <strong>manual change</strong>.</p>
+<p>Add the following code to the script, replacing the package names with those listed by the authors:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="do">########################</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="do">#### MANUAL CHANGES ####</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"package1"</span>, <span class="st">"package2"</span>, <span class="st">"package3"</span>))</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="do">########################</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>After installation, ensure that <code>library()</code> calls for all packages are present in the script (see Section 2.2).</p>
 </section>
-<section id="runtime-benchmarking" class="level2">
-<h2 class="anchored" data-anchor-id="runtime-benchmarking">Runtime Benchmarking</h2>
+<section id="packages-with-versions" class="level2">
+<h2 class="anchored" data-anchor-id="packages-with-versions">2.4 Packages with versions</h2>
+<p>If specific package versions are provided (e.g., from a <code>sessionInfo()</code> output or a list in the documentation), install the exact versions using the <code>remotes</code> package. This constitutes a <strong>manual change</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">########################</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="do">#### MANUAL CHANGES ####</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install remotes if not already available</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"remotes"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) <span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Install specific package versions as listed by the authors</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_version</span>(<span class="st">"package1"</span>, <span class="at">version =</span> <span class="st">"1.2.3"</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_version</span>(<span class="st">"package2"</span>, <span class="at">version =</span> <span class="st">"4.5.6"</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_version</span>(<span class="st">"package3"</span>, <span class="at">version =</span> <span class="st">"0.9.1"</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="do">########################</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Note:</strong> <code>remotes::install_version()</code> downloads the package source from CRAN and compiles it locally. This may take longer than a regular installation and may require build tools (Rtools on Windows, Xcode Command Line Tools on macOS, or build-essential on Linux — see Section 1).</p>
+</blockquote>
+</section>
+<section id="renv" class="level2">
+<h2 class="anchored" data-anchor-id="renv">2.5 Renv</h2>
+<p>An R project that uses <code>renv</code> will automatically initialize the <code>renv</code> library when you open the <code>.Rproj</code> file — you will see a confirmation message in the Console. The working directory is also set automatically to the project folder.</p>
+<p>A correctly set-up <code>renv</code> project will include code to restore the package library from the lockfile:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()  <span class="co"># restores packages from the renv.lock file</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(package1)  <span class="co"># library() calls for all needed packages</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(package2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If the project does not include <code>renv::restore()</code>, add this line yourself before the <code>library()</code> calls. This constitutes a <strong>manual change</strong> — record it in the protocol and refer to Section 3.4.</p>
+</section>
+</section>
+<section id="manual-changes" class="level1">
+<h1>3. Manual Changes</h1>
+<p>A <strong>manual change</strong> is any action that requires you as the reproducer to (1) write code not written by the original authors, and/or (2) modify any code provided by the original authors.</p>
+<p>This applies even when the required changes are described in the authors’ own instructions: if you have to write or alter code, it is a manual change. Record every manual change in the protocol, including what was changed and why.</p>
+<section id="set-the-working-directory" class="level2">
+<h2 class="anchored" data-anchor-id="set-the-working-directory">3.1 Set the working directory</h2>
+<p>Setting the working directory manually is <strong>only necessary if the materials are not part of an R project</strong>. R projects (recognizable by a <code>.Rproj</code> file in the top-level folder) set the working directory automatically when opened in RStudio — no manual step is needed.</p>
+<p>If the materials are not an R project, check first whether the script sets the working directory itself. For example, the following code sets the working directory to the folder containing the currently open script:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="fu">dirname</span>(rstudioapi<span class="sc">::</span><span class="fu">getActiveDocumentContext</span>()<span class="sc">$</span>path))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>There may be other approaches authors use to set the working directory programmatically — check the script carefully before assuming this has not been handled.</p>
+<p>If no automatic method is in place, you must set the working directory manually to the top-level folder of the shared materials — even if the script does not explicitly instruct you to do so. Many scripts save output to the working directory, so setting it correctly ensures output files end up where you expect them.</p>
+<p>In RStudio, navigate to <em>Session</em> → <em>Set Working Directory</em> → <em>Choose Directory…</em> and select the top-level folder of the shared materials.</p>
+<p>Alternatively, add the following code to the script (<strong>manual change</strong>):</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">macOS</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false" href="">Linux</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">########################</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="do">#### MANUAL CHANGES ####</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/path/to/shared/materials"</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="do">########################</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">########################</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="do">#### MANUAL CHANGES ####</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/Users/yourname/path/to/shared/materials"</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="do">########################</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">########################</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="do">#### MANUAL CHANGES ####</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/home/yourname/path/to/shared/materials"</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="do">########################</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="change-filepaths" class="level2">
+<h2 class="anchored" data-anchor-id="change-filepaths">3.2 Change filepaths</h2>
+<p>Authors often use absolute filepaths that are specific to their own computer (e.g., <code>C:/Users/author/Documents/project/data.csv</code> or <code>/home/author/project/data.csv</code>). These paths will not exist on your system and must be updated.</p>
+<p>To identify and fix hardcoded paths:</p>
+<ol type="1">
+<li>Search the script for filepath strings. These are typically character strings containing slashes and folder or file names (e.g., <code>"C:/Users/..."</code> or <code>"/home/..."</code>).</li>
+<li>Replace each absolute path with the correct path on your system. Where possible, use a <strong>relative path</strong> from the working directory instead of an absolute path (e.g., <code>"data/data.csv"</code> instead of a full system path). Relative paths make the script more portable.</li>
+<li>Record each change in the protocol as a <strong>manual change</strong>.</li>
+</ol>
+<p>Example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">########################</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="do">#### MANUAL CHANGES ####</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Original author's path (does not exist on your system):</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># data &lt;- read.csv("C:/Users/author/Documents/project/data.csv")</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Replaced with a relative path from the working directory:</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/data.csv"</span>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="do">########################</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Note — Windows paths:</strong> On Windows, R accepts both forward slashes (<code>/</code>) and escaped backslashes (<code>\\</code>). Either <code>"C:/path/to/file.csv"</code> or <code>"C:\\path\\to\\file.csv"</code> is valid in R.</p>
+</blockquote>
+</section>
+<section id="comment-out-erroneous-or-irrelevant-code" class="level2">
+<h2 class="anchored" data-anchor-id="comment-out-erroneous-or-irrelevant-code">3.3 Comment out erroneous or irrelevant code</h2>
+<p>Occasionally, a script contains code that produces errors or performs actions that are irrelevant to the reproduction.</p>
+<p>In these cases, comment out the relevant line(s) and add a brief explanation so the change is transparent. This constitutes a <strong>manual change</strong>.</p>
+<p>An RStudio shortcut to easily comment out chunks of code is by selecting the code you want to comment out and hitting Ctrl + Shift + C.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">########################</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="do">#### MANUAL CHANGES ####</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Commented out: sends results via email — not needed for reproduction</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># send_results(to = "author@university.edu", file = "results.pdf")</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Commented out: references a file not included in shared materials</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co"># supplementary &lt;- read.csv("C:/Users/author/extra_data/supplement.csv")</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="do">########################</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Important:</strong> Only comment out code that is genuinely irrelevant to or obstructive of the reproduction. Do not comment out code that contributes to producing the research outputs. If you are unsure, consult the protocol or raise the issue with your team.</p>
+</blockquote>
+</section>
+<section id="changes-related-to-dependencies" class="level2">
+<h2 class="anchored" data-anchor-id="changes-related-to-dependencies">3.4 Changes related to dependencies</h2>
+<p>Any of the following actions constitutes a <strong>manual change</strong> and must be recorded in the protocol:</p>
+<ul>
+<li><p><strong>Adding <code>renv::restore()</code>:</strong> If an <code>renv</code> project does not include this call, you add it yourself to restore the package library from the lockfile (see Section 2.5).</p></li>
+<li><p><strong>Adding <code>install.packages()</code>:</strong> If package installation is not included in the script, you add it to install missing packages (see Sections 2.2 and 2.3).</p></li>
+<li><p><strong>Adding <code>library()</code> calls:</strong> If required packages are described in a README or documentation but the <code>library()</code> calls are absent from the script, you add them yourself.</p></li>
+<li><p><strong>Installing specific package versions:</strong> If you use <code>remotes::install_version()</code> to install packages at the versions specified by the authors (see Section 2.4), this code must be added manually to the script.</p></li>
+</ul>
+<p>In all cases, clearly mark any added code with the <code>MANUAL CHANGES</code> comment block used throughout this appendix and indicate the manual changes in the protocol.</p>
 </section>
 </section>
 
