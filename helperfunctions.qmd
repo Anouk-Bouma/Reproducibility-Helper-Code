@@ -1,6 +1,6 @@
 ---
 title: "Helper Code"
-execute: 
+execute:
   eval: false
 format: html
 editor: visual
@@ -10,43 +10,150 @@ editor: visual
 
 ## 1.1 R version provided by authors
 
-1.  Download and install the right R version [here](https://cran.r-project.org/bin/windows/base/old/).
-2.  Download and install the associated Rtools version [here](https://cran.r-project.org/bin/windows/Rtools/). Once an Rtools version has been installed on your computer, RStudio will automatically select the right version for the R version you are running. If you already have the correct version installed, skip this step.
-3.  In RStudio, navigate to *Tools* → *Global Options*. Under R version, click *Change*.
+Follow the steps for your operating system below.
+
+::: {.panel-tabset}
+
+## Windows
+
+1.  Download and install the required R version from the [CRAN archive](https://cran.r-project.org/bin/windows/base/old/).
+2.  Download and install the associated Rtools version from [CRAN](https://cran.r-project.org/bin/windows/Rtools/). RStudio will automatically select the correct Rtools for the R version you are running. If you already have the correct version installed, skip this step.
+3.  In RStudio, navigate to *Tools* → *Global Options*. Under **R version**, click *Change*.
 4.  Select the required R version as specified by the authors, and click *OK*.
 5.  Click *Apply*.
-6.  A pop-up will appear noting that you need to restart RStudio for the change to take effect.
+6.  A pop-up will appear noting that RStudio must be restarted for the change to take effect.
 7.  Close and reopen RStudio.
 8.  Verify the correct R version is active by running `sessionInfo()` in the Console.
+
+## macOS
+
+We recommend using [rig](https://github.com/r-lib/rig) (the R Installation Manager) to install and switch between multiple R versions.
+
+**Install rig** (if not already installed) by opening Terminal and running:
+
+``` bash
+brew install --cask rig
+```
+
+If you do not have Homebrew, install it from [brew.sh](https://brew.sh) first, or download rig directly from its [GitHub releases](https://github.com/r-lib/rig/releases).
+
+**Install the required R version** by running the following in Terminal, replacing `x.x.x` with the required version number:
+
+``` bash
+rig install x.x.x
+```
+
+**Switch the R version in RStudio:**
+
+1.  In RStudio, navigate to *Tools* → *Global Options*. Under **R version**, click *Change*.
+2.  Select the required R version and click *OK*.
+3.  Click *Apply*.
+4.  Close and reopen RStudio.
+5.  Verify the correct R version is active by running `sessionInfo()` in the Console.
+
+> **Note — Apple Silicon vs Intel:** Make sure you have the correct build of R for your chip. Check your chip type under *Apple menu* → *About This Mac*. rig installs the correct build automatically.
+
+> **Note — compilation errors:** If package installation fails with compilation errors, install the Xcode Command Line Tools by running `xcode-select --install` in Terminal.
+
+## Linux
+
+We recommend using [rig](https://github.com/r-lib/rig) to install and switch between multiple R versions.
+
+**Install rig** by running the following in Terminal:
+
+``` bash
+curl -Ls https://github.com/r-lib/rig/releases/download/latest/rig-linux-static-latest.tar.gz \
+  | tar xz -C /usr/local
+```
+
+For distribution-specific instructions, see the [rig GitHub page](https://github.com/r-lib/rig).
+
+**Install the required R version** by running the following in Terminal, replacing `x.x.x` with the required version number:
+
+``` bash
+rig install x.x.x
+```
+
+**Switch the R version in RStudio:**
+
+1.  In RStudio, navigate to *Tools* → *Global Options*. Under **R version**, click *Change*.
+2.  Select the required R version and click *OK*.
+3.  Click *Apply*.
+4.  Close and reopen RStudio.
+5.  Verify the correct R version is active by running `sessionInfo()` in the Console.
+
+> **Note — missing system libraries:** If package installation fails due to missing system libraries, install the necessary build tools (e.g., `sudo apt install build-essential` on Ubuntu/Debian) and any package-specific system dependencies listed in the error message.
+
+:::
 
 ## 1.2 R version not provided by authors
 
-If there is no R version specified by the authors, we will use a standard R version.
+If no R version is specified by the authors, use the standard R version for this project.
 
-Please take the following steps:
+::: {.panel-tabset}
 
-1.  Ensure the standard R version for this project (R.x.x.x) is installed on your computer.
-2.  Ensure the appropriate RTools version is installed on your computer. Once installed, RStudio will automatically select the correct version. If already installed, skip this step.
-3.  In RStudio, navigate to *Tools* → *Global Options*. Under R version, click *Change*.
-4.  Select the standard R version (R.x.x.x), and click *OK*.
+## Windows
+
+1.  Ensure the standard R version for this project (R.x.x.x) is installed on your computer. If not, download it from the [CRAN archive](https://cran.r-project.org/bin/windows/base/old/).
+2.  Ensure the appropriate Rtools version is installed. If already installed, RStudio will select it automatically — skip this step if so.
+3.  In RStudio, navigate to *Tools* → *Global Options*. Under **R version**, click *Change*.
+4.  Select the standard R version (R.x.x.x) and click *OK*.
 5.  Click *Apply*.
-6.  A pop-up will appear noting that you need to restart RStudio for the change to take effect.
-7.  Close and reopen RStudio.
-8.  Verify the correct R version is active by running `sessionInfo()` in the Console.
+6.  Close and reopen RStudio.
+7.  Verify the correct R version is active by running `sessionInfo()` in the Console.
+
+## macOS
+
+1.  Ensure the standard R version for this project (R.x.x.x) is installed. If not, install it using rig:
+
+    ``` bash
+    rig install x.x.x
+    ```
+
+2.  In RStudio, navigate to *Tools* → *Global Options*. Under **R version**, click *Change*.
+
+3.  Select the standard R version (R.x.x.x) and click *OK*.
+
+4.  Click *Apply*.
+
+5.  Close and reopen RStudio.
+
+6.  Verify the correct R version is active by running `sessionInfo()` in the Console.
+
+## Linux
+
+1.  Ensure the standard R version for this project (R.x.x.x) is installed. If not, install it using rig:
+
+    ``` bash
+    rig install x.x.x
+    ```
+
+2.  In RStudio, navigate to *Tools* → *Global Options*. Under **R version**, click *Change*.
+
+3.  Select the standard R version (R.x.x.x) and click *OK*.
+
+4.  Click *Apply*.
+
+5.  Close and reopen RStudio.
+
+6.  Verify the correct R version is active by running `sessionInfo()` in the Console.
+
+:::
 
 # 2. Packages
 
 ## 2.1 No information on packages
 
-If no package version information is available, we will work with the newest package versions. Therefore, **every time** you start a new reproduction, you have to make sure that your installed packages are updated. Of course, any new packages that you did not have in your package library yet but are needed for the reproduction will also be the newest version (as version information is not available).
+If no package version information is available, use the newest available package versions. **Every time you start a new reproduction**, make sure all installed packages are up to date before running any code.
 
-Please take the following steps:
-
-1.  In RStudio, navigate to *Tools* → *Check for Package Updates...* → *Select All* → *Install Updates* → Click *Yes* to the pop-up that asks to restart RStudio prior to install.
+1.  In RStudio, navigate to *Tools* → *Check for Package Updates...* → *Select All* → *Install Updates*.
+2.  Click *Yes* when prompted to restart RStudio before installation.
 
 ## 2.2 Function calls in script only
 
-2.  If function calls are available but you still have to install the packages first, please adjust the following code accordingly and add it to the script:
+If the script contains `library()` or `require()` calls but the packages are not yet installed on your system, add an `install.packages()` call to the script. This constitutes a **manual change**.
+
+Adjust the package names below to match those needed by the script:
 
 ```{r}
 
@@ -61,109 +168,199 @@ install.packages(c("package1", "package2", "package3"))
 
 ## 2.3 List of packages without versions
 
+If a list of required packages is provided (e.g., in a README or documentation file) but no version numbers are given, install all listed packages at their current versions. This constitutes a **manual change**.
+
+Add the following code to the script, replacing the package names with those listed by the authors:
+
+```{r}
+
+########################
+#### MANUAL CHANGES ####
+
+install.packages(c("package1", "package2", "package3"))
+
+########################
+
+```
+
+After installation, ensure that `library()` calls for all packages are present in the script (see Section 2.2).
+
 ## 2.4 Packages with versions
+
+If specific package versions are provided (e.g., from a `sessionInfo()` output or a list in the documentation), install the exact versions using the `remotes` package. This constitutes a **manual change**.
+
+```{r}
+
+########################
+#### MANUAL CHANGES ####
+
+# Install remotes if not already available
+if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")
+
+# Install specific package versions as listed by the authors
+remotes::install_version("package1", version = "1.2.3")
+remotes::install_version("package2", version = "4.5.6")
+remotes::install_version("package3", version = "0.9.1")
+
+########################
+
+```
+
+> **Note:** `remotes::install_version()` downloads the package source from CRAN and compiles it locally. This may take longer than a regular installation and may require build tools (Rtools on Windows, Xcode Command Line Tools on macOS, or build-essential on Linux — see Section 1).
 
 ## 2.5 Renv
 
-An R Project that uses renv will automatically load the renv library upon opening the .Rproj file. You can also see this in the console. For R projects, the working directory will automatically be set to folder that contains the R project. In the Files tab in RStudio, you can open the files that you need.
+An R project that uses `renv` will automatically initialize the `renv` library when you open the `.Rproj` file — you will see a confirmation message in the Console. The working directory is also set automatically to the project folder.
 
-A correctly set-up project that uses renv will contain a line of code to restore the right packages and code that loads them into the environment. This will look like this:
+A correctly set-up `renv` project will include code to restore the package library from the lockfile:
 
 ```{r}
 
-renv::restore() # restores the packages from the lockfile
+renv::restore()  # restores packages from the renv.lock file
 
-library() # library calls for all needed packages should be included
+library(package1)  # library() calls for all needed packages
+library(package2)
 
 ```
 
-In case an renv project does not include the code to restore the packages from the lockfile, you may need to add this line of code yourself. This will then be a manual change. Be sure to indicate this manual change in the protocol and refer to section 3.4 of this appendix before continuing.
+If the project does not include `renv::restore()`, add this line yourself before the `library()` calls. This constitutes a **manual change** — record it in the protocol and refer to Section 3.4.
 
 # 3. Manual Changes
 
-We consider any action a 'manual change' if it requires you as the reproducer to 1) write code that is not written by the original authors, AND/OR 2) make any changes to the code provided by the authors.
+A **manual change** is any action that requires you as the reproducer to (1) write code not written by the original authors, and/or (2) modify any code provided by the original authors.
 
-Even if the changes that need to be made are made explicit in the instructions, any action that fulfills one of the above mentioned criteria is considered a manual change.
-
-<!--# Some examples here?? -->
+This applies even when the required changes are described in the authors' own instructions: if you have to write or alter code, it is a manual change. Record every manual change in the protocol, including what was changed and why.
 
 ## 3.1 Set the working directory
 
-<!--# This part is a bit confusing in information, think about the structure of the content -->
+Setting the working directory manually is **only necessary if the materials are not part of an R project**. R projects (recognizable by a `.Rproj` file in the top-level folder) set the working directory automatically when opened in RStudio — no manual step is needed.
 
-Setting the working directory is only necessary if the available codescripts are not part of an R project. R projects can be recognized by a file in the directory with an .Rproj extension. Opening an R project will automatically take care of setting the working directory of RStudio to the folder where the R project is stored. R projects therefore do not need a manual action of setting the working directory!
-
-It may also be possible that an R script uses code to set the working directory to the folder where the script is saved. This may look something like this:
+If the materials are not an R project, check first whether the script sets the working directory itself. For example, the following code sets the working directory to the folder containing the currently open script:
 
 ```{r}
 
-rstudioapi::getActiveDocumentContext()$path
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+
 ```
 
-But note that there can also be other ways to take care of setting the working directory within the code.
+There may be other approaches authors use to set the working directory programmatically — check the script carefully before assuming this has not been handled.
 
-If there is no automatic way that the working directory is taken care of (as may often be the case) you will have to set the working directory to the top-level folder of where you have stored the shared materials. Make sure to always do this, also if it is not specifically instructed in the script to do so. Many analyses will automatically save output files to the working directory, so it is important that you know where those are saved so you can find them easily.
+If no automatic method is in place, you must set the working directory manually to the top-level folder of the shared materials — even if the script does not explicitly instruct you to do so. Many scripts save output to the working directory, so setting it correctly ensures output files end up where you expect them.
+
+In RStudio, navigate to *Session* → *Set Working Directory* → *Choose Directory...* and select the top-level folder of the shared materials.
+
+Alternatively, add the following code to the script (**manual change**):
+
+::: {.panel-tabset}
+
+## Windows
+
+```{r}
+
+########################
+#### MANUAL CHANGES ####
+
+setwd("C:/path/to/shared/materials")
+
+########################
+
+```
+
+## macOS
+
+```{r}
+
+########################
+#### MANUAL CHANGES ####
+
+setwd("/Users/yourname/path/to/shared/materials")
+
+########################
+
+```
+
+## Linux
+
+```{r}
+
+########################
+#### MANUAL CHANGES ####
+
+setwd("/home/yourname/path/to/shared/materials")
+
+########################
+
+```
+
+:::
 
 ## 3.2 Change filepaths
 
-## 3.3 Comment out erroneous irrelevant code
+Authors often use absolute filepaths that are specific to their own computer (e.g., `C:/Users/author/Documents/project/data.csv` or `/home/author/project/data.csv`). These paths will not exist on your system and must be updated.
+
+To identify and fix hardcoded paths:
+
+1.  Search the script for filepath strings. These are typically character strings containing slashes and folder or file names (e.g., `"C:/Users/..."` or `"/home/..."`).
+2.  Replace each absolute path with the correct path on your system. Where possible, use a **relative path** from the working directory instead of an absolute path (e.g., `"data/data.csv"` instead of a full system path). Relative paths make the script more portable.
+3.  Record each change in the protocol as a **manual change**.
+
+Example:
+
+```{r}
+
+########################
+#### MANUAL CHANGES ####
+
+# Original author's path (does not exist on your system):
+# data <- read.csv("C:/Users/author/Documents/project/data.csv")
+
+# Replaced with a relative path from the working directory:
+data <- read.csv("data/data.csv")
+
+########################
+
+```
+
+> **Note — Windows paths:** On Windows, R accepts both forward slashes (`/`) and escaped backslashes (`\\`). Either `"C:/path/to/file.csv"` or `"C:\\path\\to\\file.csv"` is valid in R.
+
+## 3.3 Comment out erroneous or irrelevant code
+
+Occasionally, a script contains code that produces errors or performs actions that are irrelevant to the reproduction. Common examples include:
+
+-   Code that sends emails or uploads files to external services.
+-   Code that references files or paths not included in the shared materials.
+-   Package installation calls that conflict with the setup you have already completed.
+-   Code that clears the entire workspace (e.g., `rm(list = ls())`) at a point that would interfere with your setup.
+
+In these cases, comment out the relevant line(s) and add a brief explanation so the change is transparent. This constitutes a **manual change**.
+
+```{r}
+
+########################
+#### MANUAL CHANGES ####
+
+# Commented out: sends results via email — not needed for reproduction
+# send_results(to = "author@university.edu", file = "results.pdf")
+
+# Commented out: references a file not included in shared materials
+# supplementary <- read.csv("C:/Users/author/extra_data/supplement.csv")
+
+########################
+
+```
+
+> **Important:** Only comment out code that is genuinely irrelevant to or obstructive of the reproduction. Do not comment out code that contributes to producing the research outputs. If you are unsure, consult the protocol or raise the issue with your team.
 
 ## 3.4 Changes related to dependencies
 
--   writing code to restore renv
+Any of the following actions constitutes a **manual change** and must be recorded in the protocol:
 
--   writing install.packages
+-   **Adding `renv::restore()`:** If an `renv` project does not include this call, you add it yourself to restore the package library from the lockfile (see Section 2.5).
 
--   writing library()
+-   **Adding `install.packages()`:** If package installation is not included in the script, you add it to install missing packages (see Sections 2.2 and 2.3).
 
--   writing code to install specific package versions
+-   **Adding `library()` calls:** If required packages are described in a README or documentation but the `library()` calls are absent from the script, you add them yourself.
 
-# Dependencies - Packages
+-   **Installing specific package versions:** If you use `remotes::install_version()` to install packages at the versions specified by the authors (see Section 2.4), this code must be added manually to the script.
 
-## Standard environment: no package-version or R-version information available
-
-### R version
-
-### Package versions
-
-## A. sessionInfo() output available
-
-### R version
-
-If your project to reproduce has sessionInfo() output available, you should take the following steps to get the correct environment.
-
-1.  Download and install the right R version [here](https://cran.r-project.org/bin/windows/base/old/).
-2.  Download and install the associated Rtools version [here](https://cran.r-project.org/bin/windows/Rtools/).
-3.  In Rstudio, navigate to Tools → Global Options. Under R version, click Change.
-4.  Select the correct version and click Apply.
-5.  A pop-up will appear noting that you need to quit and re-open RStudio for this change to take effect.
-6.  Close RStudio.
-7.  Reopen RStudio.
-8.  Check if the correct R version is running in your environment by running `sessionInfo()` in the Console.
-
-It is not necessary to select the correct Rtools version. If you have correctly installed it to your device, R will automatically select the right version to use.
-
-### Package versions
-
-Once the correct R version is installed, the right packages need to be installed too. Even though authors might not have utilized renv in their projects, we will use renv to install and record any packages that were specified by the original authors. That way, we can always go back to the file to see which packages were used for the reproduction.
-
-```{r}
-
-renv::restore()
-
-library()
-```
-
-## Dependency Installments
-
-### SessionInfo() to installed packages
-
-```{r}
-
-###
-
-```
-
-## Runtime Benchmarking
-
--   working directory needs to be set to the right folder before running any analysis
+In all cases, clearly mark any added code with the `MANUAL CHANGES` comment block used throughout this appendix.
