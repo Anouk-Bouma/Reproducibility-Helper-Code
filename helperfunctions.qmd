@@ -55,9 +55,9 @@ rig install x.x.x
 4.  Close and reopen RStudio.
 5.  Verify the correct R version is active by running `sessionInfo()` in the Console.
 
-> **Note — Apple Silicon vs Intel:** Make sure you have the correct build of R for your chip. Check your chip type under *Apple menu* → *About This Mac*. rig installs the correct build automatically.
+> **Apple Silicon vs Intel:** Make sure you have the correct build of R for your chip. Check your chip type under *Apple menu* → *About This Mac*. rig installs the correct build automatically.
 
-> **Note — compilation errors:** If package installation fails with compilation errors, install the Xcode Command Line Tools by running `xcode-select --install` in Terminal.
+> **Compilation errors:** If package installation fails with compilation errors, install the Xcode Command Line Tools by running `xcode-select --install` in Terminal.
 
 ### Linux
 
@@ -86,7 +86,7 @@ rig install x.x.x
 4.  Close and reopen RStudio.
 5.  Verify the correct R version is active by running `sessionInfo()` in the Console.
 
-> **Note — missing system libraries:** If package installation fails due to missing system libraries, install the necessary build tools (e.g., `sudo apt install build-essential` on Ubuntu/Debian) and any package-specific system dependencies listed in the error message.
+> **Missing system libraries:** If package installation fails due to missing system libraries, install the necessary build tools (e.g., `sudo apt install build-essential` on Ubuntu/Debian) and any package-specific system dependencies listed in the error message.
 
 ## 1.2 R version not provided by authors
 
@@ -95,7 +95,7 @@ If no R version is specified by the authors, use the standard R version for this
 ### Windows
 
 1.  Ensure the standard R version for this project (R.x.x.x) is installed on your computer. If not, download it from the [CRAN archive](https://cran.r-project.org/bin/windows/base/old/).
-2.  Ensure the appropriate Rtools version is installed. If already installed, RStudio will select it automatically — skip this step if so.
+2.  Ensure the appropriate Rtools version is installed. If already installed, RStudio will select it automatically. Skip this step if so.
 3.  In RStudio, navigate to *Tools* → *Global Options*. Under **R version**, click *Change*.
 4.  Select the standard R version (R.x.x.x) and click *OK*.
 5.  Click *Apply*.
@@ -204,11 +204,11 @@ remotes::install_version("package3", version = "0.9.1")
 
 ```
 
-> **Note:** `remotes::install_version()` downloads the package source from CRAN and compiles it locally. This may take longer than a regular installation and may require build tools (Rtools on Windows, Xcode Command Line Tools on macOS, or build-essential on Linux — see Section 1).
+> **Note:** `remotes::install_version()` downloads the package source from CRAN and compiles it locally. This may take longer than a regular installation and may require build tools (Rtools on Windows, Xcode Command Line Tools on macOS, or build-essential on Linux, see Section 1).
 
 ## 2.5 Renv
 
-An R project that uses `renv` will automatically initialize the `renv` library when you open the `.Rproj` file — you will see a confirmation message in the Console. The working directory is also set automatically to the project folder.
+An R project that uses `renv` will automatically initialize the `renv` library when you open the `.Rproj` file, you will see a confirmation message in the Console. The working directory is also set automatically to the project folder.
 
 A correctly set-up `renv` project will include code to restore the package library from the lockfile:
 
@@ -221,7 +221,7 @@ library(package2)
 
 ```
 
-If the project does not include `renv::restore()`, add this line yourself before the `library()` calls. This constitutes a **manual change** — record it in the protocol and refer to Section 3.4.
+If the project does not include `renv::restore()`, add this line yourself before the `library()` calls. This constitutes a **manual change**, record it in the protocol and refer to Section 3.4.
 
 # 3. Manual Changes
 
@@ -231,7 +231,7 @@ This applies even when the required changes are described in the authors' own in
 
 ## 3.1 Set the working directory
 
-Setting the working directory manually is **only necessary if the materials are not part of an R project**. R projects (recognizable by a `.Rproj` file in the top-level folder) set the working directory automatically when opened in RStudio — no manual step is needed.
+Setting the working directory manually is **only necessary if the materials are not part of an R project**. R projects (recognizable by a `.Rproj` file in the top-level folder) set the working directory automatically when opened in RStudio. No manual step is needed.
 
 If the materials are not an R project, check first whether the script sets the working directory itself. For example, the following code sets the working directory to the folder containing the currently open script:
 
@@ -241,9 +241,9 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 ```
 
-There may be other approaches authors use to set the working directory programmatically — check the script carefully before assuming this has not been handled.
+There may be other approaches authors use to set the working directory programmatically. Check the script carefully before assuming this has not been handled.
 
-If no automatic method is in place, you must set the working directory manually to the top-level folder of the shared materials — even if the script does not explicitly instruct you to do so. Many scripts save output to the working directory, so setting it correctly ensures output files end up where you expect them.
+If no automatic method is in place, you must set the working directory manually to the top-level folder of the shared materials , even if the script does not explicitly instruct you to do so. Many scripts save output to the working directory, so setting it correctly ensures output files end up where you expect them.
 
 In RStudio, navigate to *Session* → *Set Working Directory* → *Choose Directory...* and select the top-level folder of the shared materials.
 
@@ -315,7 +315,7 @@ data <- read.csv("data/data.csv")
 
 ```
 
-> **Note — Windows paths:** On Windows, R accepts both forward slashes (`/`) and escaped backslashes (`\\`). Either `"C:/path/to/file.csv"` or `"C:\\path\\to\\file.csv"` is valid in R.
+> **Windows paths:** On Windows, R accepts both forward slashes (`/`) and escaped backslashes (`\\`). Either `"C:/path/to/file.csv"` or `"C:\\path\\to\\file.csv"` is valid in R.
 
 ## 3.3 Comment out erroneous or irrelevant code
 
