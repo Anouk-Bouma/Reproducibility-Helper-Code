@@ -12,6 +12,12 @@ format:
 editor: visual
 ---
 
+<!--# Use these versions of R for MacOs? -->
+
+https://cran.r-project.org/bin/macosx/big-sur-arm64/base/
+
+https://cran.r-project.org/bin/macosx/big-sur-x86_64/base/
+
 # 1. R version
 
 ## 1.1 R version provided by authors
