@@ -1,5 +1,5 @@
 ---
-title: "Helper Code"
+title: "Reproducibility Protocol Appendix"
 execute:
   eval: false
 format:
@@ -329,14 +329,13 @@ An RStudio shortcut to easily comment out chunks of code is by selecting the cod
 
 ########################
 #### MANUAL CHANGES ####
+# Commented out erroneous code
 
-# Commented out: sends results via email — not needed for reproduction
 # send_results(to = "author@university.edu", file = "results.pdf")
-
-# Commented out: references a file not included in shared materials
 # supplementary <- read.csv("C:/Users/author/extra_data/supplement.csv")
 
-########################
+### END OF COMMENTED OUT ERRONEOUS CODE ###
+###########################################
 
 ```
 
