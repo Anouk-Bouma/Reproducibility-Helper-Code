@@ -237,6 +237,8 @@ This applies even when the required changes are described in the authors' own in
 
 ## 3.1 Set the working directory
 
+<!--# R markdown or Quarto document will also set the working directory to the right folder if you open them. (Check if this is really the case before implementing) -->
+
 Setting the working directory manually is **only necessary if the materials are not part of an R project**. R projects (recognizable by a `.Rproj` file in the top-level folder) set the working directory automatically when opened in RStudio. No manual step is needed.
 
 If the materials are not an R project, check first whether the script sets the working directory itself. For example, the following code sets the working directory to the folder containing the currently open script:
